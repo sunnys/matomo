@@ -21,7 +21,7 @@ PIWIK_TOKEN = `<YOUR SECRET PIWIK TOKEN>`
 
 ```
 
-or via [settings.json](https://github.com/vjrj/piwik/blob/master/settings.json).
+or via [settings.json](https://github.com/davidsichau/piwik/blob/master/settings.json).
 
 #### Usage
 
