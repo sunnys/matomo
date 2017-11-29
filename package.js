@@ -13,7 +13,12 @@ Package.describe({
 
 /* This defines your actual package */
 Package.onUse(function (api) {
-    api.versionsFrom('1.1.0.2');
+    api.versionsFrom('1.2.1');
+    api.use([
+       'ecmascript',
+       'check'
+    ]);
+
     var both = ["client", "server"];
 
     api.addFiles(['client/piwik.js'], ['client']);
