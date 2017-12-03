@@ -1,7 +1,7 @@
 # davidsichau:piwik
 Meteor package that allows you to use Piwik Analytics with your application.
 
-An improved fork of https://github.com/appjitsu/piwik/. Thanks for the great work.
+An improved fork of https://github.com/appjitsu/piwik/ and https://github.com/DavidSichau/piwik/ . Thanks for the great work.
 
 This package uses piwik-tracker (https://www.npmjs.com/package/piwik-tracker).
 
@@ -15,8 +15,8 @@ meteor add davidsichau:piwik
 
 Add the following Environmentsvariables
 ```
-PIWIK_SITE_ID = `http://your_piwik_server_url/piwik.php"`
-PIWIK_URL = `0`
+PIWIK_URL = `http://your_piwik_server_url/piwik.php"`
+PIWIK_SITE_ID = `0`
 PIWIK_TOKEN = `<YOUR SECRET PIWIK TOKEN>`
 
 ```
