@@ -1,19 +1,19 @@
 /* Information about this package */
 Package.describe({
     // Short two-sentence summary.
-    summary: "Piwik tracking for Meteor.",
+    summary: "Matomo tracking for Meteor.",
     // Version number.
-    version: "0.3.1",
+    version: "0.1.0",
     // Optional.  Default is package directory name.
-    name: "vjrj:piwik",
+    name: "sunnys:matomo",
     documentation: 'README.md',
 
-    git: 'https://github.com/vjrj/piwik'
+    git: 'https://github.com/sunnys/matomo'
 });
 
 /* This defines your actual package */
 Package.onUse(function (api) {
-    api.versionsFrom('1.2.1');
+    api.versionsFrom('1.6.1');
     api.use([
        'ecmascript',
        'check'
@@ -21,11 +21,11 @@ Package.onUse(function (api) {
 
     var both = ["client", "server"];
 
-    api.addFiles(['client/piwik.js'], ['client']);
-    api.addFiles(['server/piwik.js'], ['server']);
+    api.addFiles(['client/matomo.js'], ['client']);
+    api.addFiles(['server/matomo.js'], ['server']);
 });
 
 /* This lets you use npm packages in your package*/
 Npm.depends({
-    "piwik-tracker": "1.0.0"
+    "matomo-tracker": "2.2.1"
 });

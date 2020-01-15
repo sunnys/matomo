@@ -1,17 +1,17 @@
-var PiwikTracker = Npm.require('piwik-tracker');
+var MatomoTracker = Npm.require('matomo-tracker');
 
-var site_id = process.env.PIWIK_SITE_ID || Meteor.settings.piwik.site_id ;
-var piwik_url = process.env.PIWIK_URL || Meteor.settings.piwik.url;
+var site_id = process.env.MATOMO_SITE_ID || Meteor.settings.matomo.site_id ;
+var matomo_url = process.env.MATOMO_URL || Meteor.settings.matomo.url;
 
 
 //stup for development settings
-var piwik = {
+var matomo = {
     track: function (val){return true;}
 };
 if (typeof(site_id) != 'undefined') {
-    piwik = new PiwikTracker(site_id, piwik_url);
+    matomo = new MatomoTracker(site_id, matomo_url);
 } else {
-    console.log("Piwik settings missing. Add settings to your settings.json file.");
+    console.log("Matomo settings missing. Add settings to your settings.json file.");
 }
 
 Meteor.methods({
@@ -26,7 +26,7 @@ Meteor.methods({
         if (!url) throw new Meteor.Error("Invalid Arguments");
         var trackingVars = {
             url: url,
-            token_auth: process.env.PIWIK_TOKEN
+            token_auth: process.env.MATOMO_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -42,7 +42,7 @@ Meteor.methods({
                 delete trackingVars[k];
             }
         });
-        piwik.track(trackingVars);
+        matomo.track(trackingVars);
     },
     trackDownload: function(url, download, userInfo) {
         check(url,  String);
@@ -57,7 +57,7 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             download: download,
-            token_auth:  process.env.PIWIK_TOKEN
+            token_auth:  process.env.MATOMO_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -73,7 +73,7 @@ Meteor.methods({
                 delete trackingVars[k];
             }
         });
-        piwik.track(trackingVars);
+        matomo.track(trackingVars);
     },
     trackLink: function(url, link, userInfo) {
         check(url,  String);
@@ -88,7 +88,7 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             link: link,
-            token_auth: process.env.PIWIK_TOKEN
+            token_auth: process.env.MATOMO_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -104,7 +104,7 @@ Meteor.methods({
                 delete trackingVars[k];
             }
         });
-        piwik.track(trackingVars);
+        matomo.track(trackingVars);
     },
     trackSearch: function(url, search, userInfo) {
         check(url,  String);
@@ -126,7 +126,7 @@ Meteor.methods({
             search: search.search,
             search_cat: search.search_cat,
             search_count: search.search_count,
-            token_auth:  process.env.PIWIK_TOKEN
+            token_auth:  process.env.MATOMO_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -142,7 +142,7 @@ Meteor.methods({
                 delete trackingVars[k];
             }
         });
-        piwik.track(trackingVars);
+        matomo.track(trackingVars);
     },
     trackGoal: function(url, goalId, userInfo) {
         check(url,  String);
@@ -157,7 +157,7 @@ Meteor.methods({
         var trackingVars = {
             url: url,
             goalId: goalId,
-            token_auth: process.env.PIWIK_TOKEN
+            token_auth: process.env.MATOMO_TOKEN
         };
         if(this.connection && this.connection.clientAddress) {
             trackingVars.cip = this.connection.clientAddress;
@@ -173,7 +173,7 @@ Meteor.methods({
                 delete trackingVars[k];
             }
         });
-        piwik.track(trackingVars);
+        matomo.track(trackingVars);
     },
     trackEvent: function (url, event, options, userInfo) {
         check(url, String);
@@ -194,7 +194,7 @@ Meteor.methods({
         if (!url || !event) throw new Meteor.Error("Invalid Arguments");
         var trackingVars = {
             url: url,
-            token_auth: process.env.PIWIK_TOKEN,
+            token_auth: process.env.MATOMO_TOKEN,
             e_c: event.category,
             e_a: event.action,
             e_n: event.name,
@@ -217,6 +217,6 @@ Meteor.methods({
                 delete trackingVars[k];
             }
         });
-        piwik.track(trackingVars);
+        matomo.track(trackingVars);
     }
 });

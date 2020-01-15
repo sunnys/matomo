@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "piwik-tracker": {
-      "version": "1.0.0",
-      "resolved": "https://registry.npmjs.org/piwik-tracker/-/piwik-tracker-1.0.0.tgz",
-      "from": "piwik-tracker@1.0.0"
+    "matomo-tracker": {
+      "version": "2.2.1",
+      "resolved": "https://registry.npmjs.org/matomo-tracker/-/matomo-tracker-2.2.1.tgz",
+      "integrity": "sha512-l81WwBbZX09WGhh4yMOmknO8vFJVWtI6hDFrowoqQIoINrKKn11RVfJYVpLHEdA/EUbXcqLsRRNCKeLAag7Q6w=="
     }
   }
 }
