@@ -10,7 +10,7 @@ NOTE: NPM package piwik-tracker is deprecated. Migraation from piwik-tracker to 
 #### Installation
 
 ```
-meteor add sunnys:matomo
+meteor add ssunnys:matomo
 ```
 
 #### Setup
