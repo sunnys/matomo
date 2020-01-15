@@ -13,7 +13,7 @@ Package.describe({
 
 /* This defines your actual package */
 Package.onUse(function (api) {
-    api.versionsFrom('1.6.1');
+    api.versionsFrom('1.2.1');
     api.use([
        'ecmascript',
        'check'
