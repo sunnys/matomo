@@ -1,3 +1,10 @@
 {
-    "name": "matomo"
+    "summary": "Matomo tracking for Meteor.",
+    "version": "0.1.0",
+    "name": "sunnys:matomo",
+    "documentation": "README.md",
+    "git": "https://github.com/sunnys/matomo",
+    "dependencies": {
+        "matomo-tracker": "~2.2.1"
+    }
 }
